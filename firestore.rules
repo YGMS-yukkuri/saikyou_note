@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /notes/{noteId} {
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.Title is string
+        && request.resource.data.Title.size() <= 50
+        && request.resource.data.Question is string
+        && request.resource.data.Answer is string
+        && (request.resource.data.Explain is string || request.resource.data.Explain == null)
+        && request.resource.data.MissCount is int
+        && request.resource.data.Date is string;
+
+      allow read: if request.auth != null && resource.data.uid == request.auth.uid;
+      allow update: if request.auth != null && resource.data.uid == request.auth.uid
+        && (request.resource.data.Title is string ? request.resource.data.Title.size() <= 50 : true)
+        && (request.resource.data.Question is string ? true : false)
+        && (request.resource.data.Answer is string ? true : false)
+        && (request.resource.data.MissCount is int ? true : true);
+
+      allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
+    }
+  }
+}
