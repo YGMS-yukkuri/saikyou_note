@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン - 僕の考えた最強のノート</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1 class="app-title">僕の考えた最強のノート</h1>
+    <button class="login-btn" id="loginBtn">Googleでログイン</button>
+  </div>
+
+  <!-- エラー表示エリア -->
+  <div class="error-container" id="errorContainer"></div>
+
+  <!-- ローディング表示 -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <p class="loading-text">ログイン処理中...</p>
+  </div>
+
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>

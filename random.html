@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ランダム問題 - 僕の考えた最強のノート</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="random-container">
+    <!-- ヘッダー -->
+    <div class="header">
+      <h1>ランダム問題</h1>
+      <button class="logout-btn" id="logoutBtn">ログアウト</button>
+    </div>
+
+    <!-- 問題カード -->
+    <div class="question-card" style="position: relative;">
+      <button class="mark-wrong-btn" id="markWrongBtn" disabled>間違えたときはここをクリック</button>
+      
+      <h2 class="question-title" id="questionTitle">問題を読み込み中...</h2>
+      
+      <div class="question-text" id="questionText"></div>
+      
+      <div id="inputSection">
+        <input type="text" class="answer-input" id="answerInput" placeholder="あなたの回答を入力してください">
+        <button class="show-answer-btn" id="showAnswerBtn">回答を表示</button>
+      </div>
+      
+      <div class="answer-section" id="answerSection" style="display: none;">
+        <h3>解答</h3>
+        <div class="answer-text" id="answerText"></div>
+        
+        <div id="explainSection">
+          <h3>解説</h3>
+          <div class="explain-text" id="explainText"></div>
+        </div>
+        
+        <div class="navigation-buttons">
+          <button class="back-to-list-btn" id="backToListBtn">一覧に戻る</button>
+          <button class="next-btn" id="nextBtn">次に進む</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- エラー表示エリア -->
+  <div class="error-container" id="errorContainer"></div>
+
+  <!-- ローディング表示 -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <p class="loading-text" id="loadingText">データを読み込み中...</p>
+  </div>
+
+  <script type="module" src="js/random.js"></script>
+</body>
+</html>

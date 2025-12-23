@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一覧 - 僕の考えた最強のノート</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="list-container">
+    <!-- ヘッダー -->
+    <div class="header">
+      <h1>僕の考えた最強のノート</h1>
+      <button class="logout-btn" id="logoutBtn">ログアウト</button>
+    </div>
+
+    <!-- コントロール -->
+    <div class="controls">
+      <div style="display: flex; gap: 10px;">
+        <button class="add-btn" id="addBtn">新規登録</button>
+        <button class="random-btn" id="randomBtn">ランダム問題</button>
+      </div>
+      <div class="sort-controls">
+        <label for="sortSelect">並び替え:</label>
+        <select id="sortSelect">
+          <option value="date">登録日時順</option>
+          <option value="title">タイトル順</option>
+          <option value="missCount">ミス回数順</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- テーブル -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>タイトル</th>
+            <th>登録日時</th>
+            <th>ミス回数</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- データはJavaScriptで挿入 -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 仮想ウィンドウ (登録/編集/詳細/削除) -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <h2 id="modalTitle">新規登録</h2>
+      <div id="modalContent">
+        <!-- 動的に内容を変更 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- エラー表示エリア -->
+  <div class="error-container" id="errorContainer"></div>
+
+  <!-- ローディング表示 -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <p class="loading-text" id="loadingText">データを同期中...</p>
+  </div>
+
+  <script type="module" src="js/list.js"></script>
+</body>
+</html>
